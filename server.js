@@ -7,10 +7,10 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server)
 
-// 🔥 Esto es lo importante
+// 🔥 Servir archivos estáticos
 app.use(express.static(__dirname))
 
-// 🔥 Ruta principal explícita
+// 🔥 Ruta raíz obligatoria para Render
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"))
 })
@@ -24,6 +24,7 @@ const PORT = process.env.PORT || 3000
 server.listen(PORT, () => {
   console.log("Server running on port " + PORT)
 })
+
 
 
 
